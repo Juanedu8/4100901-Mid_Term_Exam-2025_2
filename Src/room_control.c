@@ -59,9 +59,9 @@ void room_control_on_uart_receive(char received_char)
         case 's': //punto 2
             tim3_ch1_pwm_set_duty_cycle(dutycycle);
             if (current_state == ROOM_OCCUPIED) {
-                uart_send_string("Estado actual: - Lámpara:", dutycycle, "- Puerta: Abierta\r\n");
+                uart_send_string("Estado actual: - Lámpara: %d%% - Puerta: Abierta\r\n", dutycycle);
             } else {
-                uart_send_string("Estado actual: - Lámpara:", dutycycle, "- Puerta: Cerrada\r\n");
+                uart_send_string("Estado actual: - Lámpara: %d%% - Puerta: Cerrada\r\n", dutycycle);
             }
         case '?': //punto 3
             tim3_ch1_pwm_set_duty_cycle(10);
